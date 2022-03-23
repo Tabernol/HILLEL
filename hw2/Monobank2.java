@@ -7,15 +7,11 @@ public class Monobank2 {
     String surname;
     int deposit;
 
-    private static int interest() {
-        int interest = ((int) (Math.random() * 10 + 1));
-        return interest;
-    }
 
     private void showInfoDeposit(int deposit, int year) {
         int income = 0;
         int incomeYear;
-        int interest = interest();
+        int interest = (int) (Math.random() * 10 + 1);
         for (int i = 1; i <= year; i++) {
             incomeYear = deposit * interest / 100;
             deposit += incomeYear;
