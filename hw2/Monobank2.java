@@ -16,7 +16,7 @@ public class Monobank2 {
             deposit += incomeYear;
             income += incomeYear;
         }
-        System.out.println("You interest rate for " + year + " will be " + interest);
+        System.out.println("You interest rate for " + year + " year will be " + interest);
         System.out.println("You profit will be " + income);
         System.out.println("Deposit amount and profit " + deposit + "\n");
     }
