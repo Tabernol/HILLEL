@@ -5,20 +5,12 @@ import java.util.Scanner;
 public class Monobank2 {
     String name;
     String surname;
-    int deposit;
+    double deposit;
+    static double interest = 5.5;
 
-    private void showInfoDeposit(int deposit, int year) {
-        int income = 0;
-        int incomeYear;
-        int interest = (int) (Math.random() * 10 + 1);
-        for (int i = 1; i <= year; i++) {
-            incomeYear = deposit * interest / 100;
-            deposit += incomeYear;
-            income += incomeYear;
-        }
-        System.out.println("You interest rate for " + year + " year will be " + interest);
-        System.out.println("You profit will be " + income);
-        System.out.println("Deposit amount and profit " + deposit + "\n");
+    public double income(int year){
+        double income = deposit * interest/100 * year;
+        return income;
     }
 
     public static void main(String[] args) {
@@ -31,9 +23,12 @@ public class Monobank2 {
         client.surname = scanner.nextLine().trim();
         System.out.println("How much do you want to deposit?");
         client.deposit = scanner.nextInt();
-        client.showInfoDeposit(client.deposit, 1);
-        client.showInfoDeposit(client.deposit, 5);
-        client.showInfoDeposit(client.deposit, 10);
+        System.out.println("You profit will be for 1 yaer " + client.income(1));
+        System.out.println("Deposit amount and profit " + (client.deposit + client.income(1)) + "\n");
+        System.out.println("You profit will be for 5 yaer " + client.income(5));
+        System.out.println("Deposit amount and profit " + (client.deposit + client.income(5)) + "\n");
+        System.out.println("You profit will be for 10 yaer " + client.income(10));
+        System.out.println("Deposit amount and profit " + (client.deposit + client.income(10)) + "\n");
     }
 }
 
