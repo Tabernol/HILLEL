@@ -7,7 +7,6 @@ public class Monobank2 {
     String surname;
     int deposit;
 
-
     private void showInfoDeposit(int deposit, int year) {
         int income = 0;
         int incomeYear;
