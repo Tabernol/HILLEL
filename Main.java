@@ -9,5 +9,7 @@ public class Main {
         accord.iWantToDrive(150, 130);
         accord.fillTank(15);
         accord.showOdometer();
+        Car c = new Car();
+        c.iWantToDrive(100);
     }
 }

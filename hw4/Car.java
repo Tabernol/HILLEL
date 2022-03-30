@@ -9,6 +9,15 @@ public class Car {
     private double allDistance;          //this is encapsulated data
     private double levelFuel;            //this is encapsulated data
 
+    public Car() {
+        System.out.println("Use constructor with parameter, because you create very bad car - Lada");
+        this.name = "Lada";
+        this.tankVolume = 39;
+        this.engineVolume = 1.3;
+        this.levelFuel = tankVolume/2;
+        System.out.println("You tank is fill half");
+    }
+
     public Car(String name, double tankVolume, double engineVolume) {
         if (name.length() > 20) {
             System.out.println("Non correct the name must be less than 20 characters");
@@ -32,6 +41,9 @@ public class Car {
     //method that calculates and returns the value of the average fuel consumption in liter/kilometer
     private double whatAvrFuelConsumption() {
         double factorEngineVolume = 5;
+        if (name.equalsIgnoreCase("Lada")) {
+            factorEngineVolume = 10;
+        }
         avrFuelConsumption = engineVolume * factorEngineVolume / 100;
         return avrFuelConsumption;
     }
