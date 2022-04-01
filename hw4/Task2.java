@@ -14,8 +14,7 @@ public class Task2 {
         for (int i = 0; i < word2.length; i++) {
             sentence2.append(word2[i]);
         }
-        boolean comparisonSentence;
-        comparisonSentence = sentence1.toString().equals(sentence2.toString());
+        boolean comparisonSentence = sentence1.toString().equals(sentence2.toString());
         System.out.println(comparisonSentence);
         return comparisonSentence;
     }

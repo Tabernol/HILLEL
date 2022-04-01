@@ -38,7 +38,8 @@ public class Car {
         System.out.println("You tank is full");
     }
 
-    //method that calculates and returns the value of the average fuel consumption in liter/kilometer
+    /**method that calculates and returns the value of the average fuel consumption in liter/kilometer
+     */
     private double whatAvrFuelConsumption() {
         double factorEngineVolume = 5;
         if (name.equalsIgnoreCase("Lada")) {
@@ -48,8 +49,9 @@ public class Car {
         return avrFuelConsumption;
     }
 
-    //method that calculates and returns the value of the average fuel consumption
-    // in liter/kilometer depending on the average speed
+    /**method that calculates and returns the value of the average fuel consumption
+     *in liter/kilometer depending on the average speed
+     */
     private void whatAvrFuelConsumption(double avrSpeed) {
         if (avrSpeed < 0 || avrSpeed > 200) {
             System.out.println("Non correct value of speed");
@@ -64,16 +66,18 @@ public class Car {
         }
     }
 
-    //The method calculates the ability to travel a given distance depending on the fullness of the tank.
-    //shows information
+    /**The method calculates the ability to travel a given distance depending on the fullness of the tank.
+     *shows information
+     */
     public void iWantToDrive(double distance) {
         whatAvrFuelConsumption();
         double possibleDistance = levelFuel / avrFuelConsumption;
         levelFuel -= (distance * avrFuelConsumption);
         if (levelFuel <= 0) {
+            levelFuel = 0;
             System.out.println("You can drive only " + possibleDistance + " kilometers");
             System.out.println("You car stop because fuel finish");
-            System.out.println("You have " + (levelFuel = 0) + " liter fuel.");
+            System.out.println("You have " + levelFuel + " liter fuel.");
             allDistance += possibleDistance;
         } else {
             System.out.println("You drove " + distance + " kilometers, fuel consumption " + avrFuelConsumption + " L/km");
@@ -83,9 +87,10 @@ public class Car {
 
     }
 
-    //The method calculates the ability to travel a given distance
-    // and a given average speed depending on the fullness of the tank.
-    //shows information
+    /** The method calculates the ability to travel a given distance
+     *and a given average speed depending on the fullness of the tank.
+     *information
+     */
     public void iWantToDrive(double distance, double avrSpeed) {
         whatAvrFuelConsumption(avrSpeed);
         double possibleDistance = levelFuel / avrFuelConsumption;
@@ -102,7 +107,8 @@ public class Car {
         }
     }
 
-    //The method fills the tank, does not allow to fill more volume
+    /**The method fills the tank, does not allow to fill more volume
+     */
     public void fillTank(double liter) {
         if (liter < 0) {
             System.out.println("Non correct value");
@@ -116,7 +122,8 @@ public class Car {
         }
     }
 
-    //The method shows the total mileage of the car
+    /**The method shows the total mileage of the car
+     */
     public void showOdometer() {
         System.out.println("Value of odometer " + name + " " + allDistance + " kilometers");
     }
