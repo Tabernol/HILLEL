@@ -1,6 +1,6 @@
 package hw5;
 
-public class Limousine extends Car{
+public class Limousine extends Car {
     private int bottleChampagne;
 
     public Limousine(String name, double tankVolume, double engineVolume, int bottleChampagne) {
@@ -8,7 +8,8 @@ public class Limousine extends Car{
         this.bottleChampagne = bottleChampagne;
         this.setLevelFuel(tankVolume);
     }
-    public void showBottleChampagne(){
+
+    public void showBottleChampagne() {
         System.out.println("In this car " + bottleChampagne + " bottle champagne");
     }
 

@@ -21,6 +21,7 @@ public class Car {
         avrFuelConsumption = engineVolume * factorEngineVolume / 100;
         return avrFuelConsumption;
     }
+
     private void whatAvrFuelConsumption(double avrSpeed) {
         if (avrSpeed < 0 || avrSpeed > 200) {
             System.out.println("Non correct value of speed");
@@ -31,7 +32,8 @@ public class Car {
             setAvrFuelConsumption(whatAvrFuelConsumption() / (avrSpeed / optimalSpeed));
         }
         if (avrSpeed > optimalSpeed) { //If the speed is less than the optimum consumption is less
-            setAvrFuelConsumption(whatAvrFuelConsumption() * (avrSpeed / optimalSpeed));;
+            setAvrFuelConsumption(whatAvrFuelConsumption() * (avrSpeed / optimalSpeed));
+            ;
         }
     }
 
@@ -44,28 +46,28 @@ public class Car {
             System.out.println("You can drive only " + possibleDistance + " kilometers");
             System.out.println("You car stop because fuel finish");
             System.out.println("You have " + levelFuel + " liter fuel.");
-            setAllDistance(getAllDistance()+possibleDistance);
+            setAllDistance(getAllDistance() + possibleDistance);
         } else {
             System.out.println("You drove " + distance + " kilometers");
             System.out.println("You have " + levelFuel + " liter fuel.");
-            setAllDistance(getAllDistance()+distance);
+            setAllDistance(getAllDistance() + distance);
         }
     }
 
     public void iWantToDrive(double distance, double avrSpeed) {
         whatAvrFuelConsumption(avrSpeed);
         double possibleDistance = getLevelFuel() / getAvrFuelConsumption();
-        setLevelFuel(getLevelFuel()-(distance*getAvrFuelConsumption()));
+        setLevelFuel(getLevelFuel() - (distance * getAvrFuelConsumption()));
         if (getLevelFuel() <= 0) {
             setLevelFuel(0);
             System.out.println("You can drive only " + possibleDistance + " kilometers");
             System.out.println("You car stop because fuel finish");
             System.out.println("You have " + getLevelFuel() + " liter fuel.");
-            setAllDistance(getAllDistance()+possibleDistance);
+            setAllDistance(getAllDistance() + possibleDistance);
         } else {
             System.out.println("You drove " + distance + " kilometers, fuel consumption " + getAvrFuelConsumption() + " L/km");
             System.out.println("You have " + getLevelFuel() + " liter fuel.");
-            setAllDistance(getAllDistance()+distance);
+            setAllDistance(getAllDistance() + distance);
         }
     }
 
