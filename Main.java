@@ -1,18 +1,14 @@
-package src.HILLEL;
+package HILLEL;
 
-import src.HILLEL.hw4.Car;
-import src.HILLEL.hw4.Task2;
+import hw5.Car;
+import hw5.Coupe;
+import hw5.Limousine;
 
 public class Main {
     public static void main(String[] args) {
-//        Car accord = new Car("accord", 58, 2.4);
-//        accord.iWantToDrive(100);
-//        accord.iWantToDrive(150, 130);
-//        accord.fillTank(15);
-//        accord.showOdometer();
-//        Car c = new Car();
-//        c.iWantToDrive(100);
-        Task2 t = new Task2();
-        t.comparisonArrays();
+
+        Car car = new Car("accord", 60, 3);
+        Coupe cupe = new Coupe("porsche", 80,4,2);
+        Limousine limousine = new Limousine("Cadillac", 50, 3, 15);
     }
 }
