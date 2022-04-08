@@ -1,4 +1,4 @@
-package hw5;
+package src.HILLEL.hw5;
 
 public class Car {
     public String name;

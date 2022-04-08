@@ -1,4 +1,4 @@
-package hw5;
+package src.HILLEL.hw5;
 
 public class RunningSum {
     public int[] runningSum(int[] nums) {

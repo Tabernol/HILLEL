@@ -1,4 +1,4 @@
-package hw5;
+package src.HILLEL.hw5;
 
 public class Limousine extends Car {
     private int bottleChampagne;
