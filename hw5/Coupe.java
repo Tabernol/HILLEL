@@ -1,4 +1,4 @@
-package src.HILLEL.hw5;
+package hw5;
 
 public class Coupe extends Car {
     private int numberOfTurbines;
