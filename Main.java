@@ -7,8 +7,8 @@ import hw5.Limousine;
 public class Main {
     public static void main(String[] args) {
 
-        Car car = new Car("accord", 60, 3);
-        Coupe cupe = new Coupe("porsche", 80, 4, 2);
-        Limousine limousine = new Limousine("Cadillac", 50, 3, 15);
+        hw6.Car c = new hw6.Car("BMW X6", 55, 3.6, 2500,1800);
+        c.airConsumption();
+        System.out.println(c.carryingCapacity());
     }
 }
