@@ -1,4 +1,4 @@
-package hw6;
+package src.HILLEL.hw6;
 
 public class Task2DecomressRun1313 {
     public int[] decompressRLElist(int[] nums) {
