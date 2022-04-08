@@ -1,18 +1,14 @@
-package src.HILLEL;
+package HILLEL;
 
-import src.HILLEL.hw4.Car;
-import src.HILLEL.hw4.Task2;
+import hw5.Car;
+import hw5.Coupe;
+import hw5.Limousine;
 
 public class Main {
     public static void main(String[] args) {
-//        Car accord = new Car("accord", 58, 2.4);
-//        accord.iWantToDrive(100);
-//        accord.iWantToDrive(150, 130);
-//        accord.fillTank(15);
-//        accord.showOdometer();
-//        Car c = new Car();
-//        c.iWantToDrive(100);
-        Task2 t = new Task2();
-        t.comparisonArrays();
+
+        hw6.Car c = new hw6.Car("BMW X6", 55, 3.6, 2500,1800);
+        c.airConsumption();
+        System.out.println(c.carryingCapacity());
     }
 }
