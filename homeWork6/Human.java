@@ -1,6 +1,6 @@
 package src.HILLEL.homeWork6;
 
-import src.HILLEL.hw6.Consumption;
+import hw6.Consumption;
 
 public class Human implements Consumption {
     @Override

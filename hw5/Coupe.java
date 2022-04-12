@@ -1,5 +1,7 @@
 package hw5;
 
+import hw4.Car;
+
 public class Coupe extends Car {
     private int numberOfTurbines;
 

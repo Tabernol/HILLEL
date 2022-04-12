@@ -1,4 +1,4 @@
-package src.HILLEL.hw6;
+package hw6;
 
 public class Car extends Transport implements Consumption {
     public String name;
