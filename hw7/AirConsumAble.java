@@ -1,5 +1,5 @@
 package hw7;
 
-public interface AirConsumptionAble {
+public interface AirConsumAble {
     public void airConsumption();
 }

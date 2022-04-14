@@ -6,12 +6,8 @@ public enum TypeOfEngine {
     HYBRID(40),
     ELECTRIC(90);
 
-    private int coefficientPerformance;
+    public final int COEFFICIENT_OF_PERFORMANCE;
     private TypeOfEngine(int coefficientPerformance){
-        this.coefficientPerformance = coefficientPerformance;
-    }
-
-    public int getCoefficientPerformance (){
-        return coefficientPerformance;
+        this.COEFFICIENT_OF_PERFORMANCE = coefficientPerformance;
     }
 }

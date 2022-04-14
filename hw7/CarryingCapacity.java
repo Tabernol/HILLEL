@@ -6,12 +6,8 @@ public enum CarryingCapacity {
     C(7500),
     С1(20000);
 
-    private int fullWeight;
+    public final int FULL_WEIGHT;
     CarryingCapacity (int fullWeight){
-        this.fullWeight = fullWeight;
-    }
-
-    public int getFullWeight(){
-        return fullWeight;
+        this.FULL_WEIGHT = fullWeight;
     }
 }

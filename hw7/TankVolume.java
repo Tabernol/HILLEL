@@ -6,12 +6,8 @@ public enum TankVolume {
     LARGE(92),
     HUGE(380);
 
-    private double volume;
+    public final double VOLUME;
     TankVolume(double volume) {
-        this.volume = volume;
-    }
-
-    public double getTankVolume(){
-        return volume;
+        this.VOLUME = volume;
     }
 }

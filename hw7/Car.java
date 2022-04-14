@@ -1,6 +1,6 @@
 package hw7;
 
-public class Car extends Transport implements AirConsumptionAble {
+public class Car extends Transport implements AirConsumAble {
     private String name;
     private double engineVolume;
     private int unladenWeight;
@@ -20,12 +20,12 @@ public class Car extends Transport implements AirConsumptionAble {
         this.tankVolume = tankVolume;
         this.typeOfEngine = typeOfEngine;
         this.category = category;
-        this.levelFuel = tankVolume.getTankVolume();
+        this.levelFuel = tankVolume.VOLUME;
     }
 
     @Override
     public double carryingCapacity() {
-        return category.getFullWeight() - unladenWeight;
+        return category.FULL_WEIGHT - unladenWeight;
     }
 
     @Override
@@ -95,8 +95,8 @@ public class Car extends Transport implements AirConsumptionAble {
             System.out.println("Non correct value");
             return;
         }
-        if ((levelFuel + liter) > tankVolume.getTankVolume()) {
-            System.out.println("You can fill only " + (tankVolume.getTankVolume() - levelFuel) + " liter");
+        if ((levelFuel + liter) > tankVolume.VOLUME) {
+            System.out.println("You can fill only " + (tankVolume.VOLUME - levelFuel) + " liter");
         } else {
             levelFuel += liter;
             System.out.println("The tank is filled to " + levelFuel + " liter");
@@ -108,7 +108,7 @@ public class Car extends Transport implements AirConsumptionAble {
     }
 
     public void showCoefficientPerformance() {
-        System.out.println("Coefficient performance " + typeOfEngine.getCoefficientPerformance() + "%");
+        System.out.println("Coefficient performance " + typeOfEngine.COEFFICIENT_OF_PERFORMANCE + "%");
     }
 
     private double getAvrFuelConsumption() {
