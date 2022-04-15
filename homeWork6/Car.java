@@ -1,19 +1,38 @@
-package hw5;
+package src.HILLEL.homeWork6;
 
-public class Car {
+import src.HILLEL.homeWork6.Consumption;
+import src.HILLEL.homeWork6.Transport;
+
+public class Car extends Transport implements Consumption {
     public String name;
     public double tankVolume;
     public double engineVolume;
+    double fullWeight;
+    double unladenWeight;
 
     private double avrFuelConsumption;
     private double allDistance;
     private double levelFuel;
 
-    public Car(String name, double tankVolume, double engineVolume) {
+    public Car(String name, double tankVolume, double engineVolume, double fullWeight, double unladenWeight) {
         this.name = name;
         this.tankVolume = tankVolume;
         this.engineVolume = engineVolume;
+        this.fullWeight = fullWeight;
+        this.unladenWeight = unladenWeight;
         this.levelFuel = tankVolume;
+    }
+
+    @Override
+    public double carryingCapacity() {
+        return fullWeight - unladenWeight;
+    }
+
+    @Override
+    public void airConsumption() {
+        System.out.println("To obtain data on air consumption, the following data are required:" +
+                " engine capacity, cylinder rollers, crankshaft speed, number of strokes," +
+                " filling factor, and air density.");
     }
 
     private double whatAvrFuelConsumption() {

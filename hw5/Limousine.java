@@ -1,5 +1,7 @@
 package hw5;
 
+import hw4.Car;
+
 public class Limousine extends Car {
     private int bottleChampagne;
 

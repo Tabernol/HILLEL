@@ -1,4 +1,4 @@
-package src.HILLEL.hw4;
+package hw4;
 
 public class Car {
     private String name;
@@ -126,5 +126,9 @@ public class Car {
      */
     public void showOdometer() {
         System.out.println("Value of odometer " + name + " " + allDistance + " kilometers");
+    }
+
+    public void setLevelFuel(double levelFuel) {
+        this.levelFuel = levelFuel;
     }
 }
