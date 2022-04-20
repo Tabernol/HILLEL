@@ -106,12 +106,4 @@ public class Car extends Transport implements AirConsumAble {
     public void showOdometer() {
         System.out.println("Value of odometer " + name + " " + allDistance + " kilometers");
     }
-
-    public double getLevelFuel() {
-        return levelFuel;
-    }
-
-    public void setLevelFuel(double levelFuel) {
-        this.levelFuel = levelFuel;
-    }
 }
