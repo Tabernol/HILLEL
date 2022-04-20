@@ -1,23 +1,38 @@
 package hw7;
 
-public class Car extends Transport implements AirConsumptionAble {
-    public String name;
-    public double tankVolume;
-    public double engineVolume;
-    double fullWeight;
-    double unladenWeight;
+public class Car extends Transport implements AirConsumAble {
+    private String name;
+    private double engineVolume;
+    private int unladenWeight;
+    TankVolume tankVolume;
+    TypeOfEngine typeOfEngine;
+    CarryingCapacity category;
 
     private double avrFuelConsumption;
     private double allDistance;
     private double levelFuel;
 
-    public Car(String name, double tankVolume, double engineVolume, double fullWeight, double unladenWeight) {
+    public Car(String name, double engineVolume, int unladenWeight,
+               TankVolume tankVolume, TypeOfEngine typeOfEngine, CarryingCapacity category) {
         this.name = name;
-        this.tankVolume = tankVolume;
         this.engineVolume = engineVolume;
-        this.fullWeight = fullWeight;
         this.unladenWeight = unladenWeight;
-        this.levelFuel = tankVolume;
+        this.tankVolume = tankVolume;
+        this.typeOfEngine = typeOfEngine;
+        this.category = category;
+        this.levelFuel = tankVolume.VOLUME;
+    }
+
+    @Override
+    public double carryingCapacity() {
+        return category.FULL_WEIGHT - unladenWeight;
+    }
+
+    @Override
+    public void airConsumption() {
+        System.out.println("To obtain data on air consumption, the following data are required:" +
+                " engine capacity, cylinder rollers, crankshaft speed, number of strokes," +
+                " filling factor, and air density.");
     }
 
     private double whatAvrFuelConsumption() {
@@ -80,10 +95,10 @@ public class Car extends Transport implements AirConsumptionAble {
             System.out.println("Non correct value");
             return;
         }
-        if ((levelFuel + liter) > tankVolume) {
-            System.out.println("You can fill only " + (tankVolume - levelFuel) + " liter");
+        if ((levelFuel + liter) > tankVolume.VOLUME) {
+            System.out.println("You can fill only " + (tankVolume.VOLUME - levelFuel) + " liter");
         } else {
-            levelFuel = levelFuel + liter;
+            levelFuel += liter;
             System.out.println("The tank is filled to " + levelFuel + " liter");
         }
     }
@@ -92,12 +107,11 @@ public class Car extends Transport implements AirConsumptionAble {
         System.out.println("Value of odometer " + name + " " + allDistance + " kilometers");
     }
 
-    @Override
-    double carryingCapacity() {
-        return 0;
+    public double getLevelFuel() {
+        return levelFuel;
     }
 
-    @Override
-    public void airConsumption() {
+    public void setLevelFuel(double levelFuel) {
+        this.levelFuel = levelFuel;
     }
 }
