@@ -1,28 +1,31 @@
 package hw7;
 
-public class Car extends Transport  implements AirConsumptionAble {
-    public String name;
-    public double tankVolume;
-    public double engineVolume;
-    double fullWeight;
-    double unladenWeight;
+public class Car extends Transport implements AirConsumAble {
+    private String name;
+    private double engineVolume;
+    private int unladenWeight;
+    TankVolume tankVolume;
+    TypeOfEngine typeOfEngine;
+    CarryingCapacity category;
 
     private double avrFuelConsumption;
     private double allDistance;
     private double levelFuel;
 
-    public Car(String name, double tankVolume, double engineVolume, double fullWeight, double unladenWeight) {
+    public Car(String name, double engineVolume, int unladenWeight,
+               TankVolume tankVolume, TypeOfEngine typeOfEngine, CarryingCapacity category) {
         this.name = name;
-        this.tankVolume = tankVolume;
         this.engineVolume = engineVolume;
-        this.fullWeight = fullWeight;
         this.unladenWeight = unladenWeight;
-        this.levelFuel = tankVolume;
+        this.tankVolume = tankVolume;
+        this.typeOfEngine = typeOfEngine;
+        this.category = category;
+        this.levelFuel = tankVolume.VOLUME;
     }
 
     @Override
     public double carryingCapacity() {
-        return fullWeight - unladenWeight;
+        return category.FULL_WEIGHT - unladenWeight;
     }
 
     @Override
@@ -45,10 +48,10 @@ public class Car extends Transport  implements AirConsumptionAble {
         }
         double optimalSpeed = 80;
         if (avrSpeed <= optimalSpeed) { //If the speed is less than the optimum consumption is higher
-            setAvrFuelConsumption(whatAvrFuelConsumption() / (avrSpeed / optimalSpeed));
+            avrFuelConsumption = (whatAvrFuelConsumption() / (avrSpeed / optimalSpeed));
         }
         if (avrSpeed > optimalSpeed) { //If the speed is less than the optimum consumption is less
-            setAvrFuelConsumption(whatAvrFuelConsumption() * (avrSpeed / optimalSpeed));
+            avrFuelConsumption = (whatAvrFuelConsumption() * (avrSpeed / optimalSpeed));
             ;
         }
     }
@@ -62,28 +65,28 @@ public class Car extends Transport  implements AirConsumptionAble {
             System.out.println("You can drive only " + possibleDistance + " kilometers");
             System.out.println("You car stop because fuel finish");
             System.out.println("You have " + levelFuel + " liter fuel.");
-            setAllDistance(getAllDistance() + possibleDistance);
+            allDistance += possibleDistance;
         } else {
             System.out.println("You drove " + distance + " kilometers");
             System.out.println("You have " + levelFuel + " liter fuel.");
-            setAllDistance(getAllDistance() + distance);
+            allDistance += distance;
         }
     }
 
     public void iWantToDrive(double distance, double avrSpeed) {
         whatAvrFuelConsumption(avrSpeed);
-        double possibleDistance = getLevelFuel() / getAvrFuelConsumption();
-        setLevelFuel(getLevelFuel() - (distance * getAvrFuelConsumption()));
-        if (getLevelFuel() <= 0) {
-            setLevelFuel(0);
+        double possibleDistance = levelFuel / avrFuelConsumption;
+        levelFuel = levelFuel - (distance * avrFuelConsumption);
+        if (levelFuel <= 0) {
+            levelFuel = 0;
             System.out.println("You can drive only " + possibleDistance + " kilometers");
             System.out.println("You car stop because fuel finish");
-            System.out.println("You have " + getLevelFuel() + " liter fuel.");
-            setAllDistance(getAllDistance() + possibleDistance);
+            System.out.println("You have " + levelFuel + " liter fuel.");
+            allDistance += possibleDistance;
         } else {
-            System.out.println("You drove " + distance + " kilometers, fuel consumption " + getAvrFuelConsumption() + " L/km");
-            System.out.println("You have " + getLevelFuel() + " liter fuel.");
-            setAllDistance(getAllDistance() + distance);
+            System.out.println("You drove " + distance + " kilometers, fuel consumption " + avrFuelConsumption + " L/km");
+            System.out.println("You have " + levelFuel + " liter fuel.");
+            allDistance += distance;
         }
     }
 
@@ -92,39 +95,15 @@ public class Car extends Transport  implements AirConsumptionAble {
             System.out.println("Non correct value");
             return;
         }
-        if ((levelFuel + liter) > tankVolume) {
-            System.out.println("You can fill only " + (tankVolume - levelFuel) + " liter");
+        if ((levelFuel + liter) > tankVolume.VOLUME) {
+            System.out.println("You can fill only " + (tankVolume.VOLUME - levelFuel) + " liter");
         } else {
-            levelFuel = levelFuel + liter;
+            levelFuel += liter;
             System.out.println("The tank is filled to " + levelFuel + " liter");
         }
     }
 
     public void showOdometer() {
-        System.out.println("Value of odometer " + name + " " + getAllDistance() + " kilometers");
-    }
-
-    public double getAvrFuelConsumption() {
-        return avrFuelConsumption;
-    }
-
-    public double getAllDistance() {
-        return allDistance;
-    }
-
-    public void setAllDistance(double allDistance) {
-        this.allDistance = allDistance;
-    }
-
-    public void setAvrFuelConsumption(double avrFuelConsumption) {
-        this.avrFuelConsumption = avrFuelConsumption;
-    }
-
-    public double getLevelFuel() {
-        return levelFuel;
-    }
-
-    public void setLevelFuel(double levelFuel) {
-        this.levelFuel = levelFuel;
+        System.out.println("Value of odometer " + name + " " + allDistance + " kilometers");
     }
 }
