@@ -91,7 +91,7 @@ public class MyLinkedList implements MyList {
 
     @Override
     public boolean add(Integer item) {
-        int number = Integer.parseInt(item.toString());
+        int number = item;
         Node temp = firstN;
         if (firstN == null) {
             Node newNode = new Node(number, null, null);
